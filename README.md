@@ -18,13 +18,13 @@ Replay attacks are explicitly prevented
 
 ## Architecture
 
-### -- AuthorizationManager
+### AuthorizationManager
 Stores a **trusted signer address**  
 Verifies off-chain **ECDSA signatures**  
 Enforces **exactly-once authorization**  
 Prevents **replay attacks** by tracking used hashes  
 
-### -- SecureVault
+### SecureVault
 Holds ETH  
 Accepts deposits via `receive()`  
 Executes withdrawals **only after authorization**  
@@ -37,7 +37,7 @@ Does **not** verify signatures itself
 
 Withdrawals are authorized **off-chain** using a signed message.
 
-### -- Authorization Hash Inputs
+### Authorization Hash Inputs
 The authorization hash is constructed using:
 
  `chainId`  
@@ -46,7 +46,7 @@ The authorization hash is constructed using:
  `withdrawal amount`  
  `nonce`  
 
-### -- Authorization Flow
+### Authorization Flow
 Hash is generated off-chain  
 Hash is signed by the **trusted signer**  
 Signature is submitted on-chain  
